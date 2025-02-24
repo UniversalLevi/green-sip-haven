@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -117,8 +118,8 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Adjust dark mode colors */
-.dark .bg-accent {
+/* Dark mode adjustments */
+.dark [class*="bg-accent"] {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -130,13 +131,27 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Theme button enhancement */
+/* Theme button */
 .theme-toggle {
-  @apply fixed bottom-6 right-6 p-3 rounded-full bg-background border border-border shadow-lg hover:shadow-xl transition-all z-50;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  z-index: 50;
+}
+
+.theme-toggle:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .dark .theme-toggle {
-  @apply bg-accent border-primary/20;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Animation classes */
