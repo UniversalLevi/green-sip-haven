@@ -1,9 +1,8 @@
-
 import { ChevronRight, Sparkles, Clock, Leaf, Shield, Star } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center pt-20">
+    <div className="relative min-h-screen flex items-center pt-24">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent dark:from-primary/30" />
       </div>
@@ -90,11 +89,11 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative animate-float" style={{ animationDuration: '3s' }}>
+          <div className="relative animate-float" style={{ animationDuration: '6s' }}>
             <img
               src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86"
               alt="Green juice bottles in natural setting"
-              className="w-full max-w-lg mx-auto rounded-2xl shadow-xl"
+              className="w-full max-w-md mx-auto rounded-2xl shadow-xl"
             />
           </div>
         </div>

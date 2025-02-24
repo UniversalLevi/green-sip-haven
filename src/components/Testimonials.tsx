@@ -43,7 +43,8 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-background p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+              className="bg-background p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-2 fade-in-up"
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <img
@@ -65,7 +66,8 @@ const Testimonials = () => {
                   .map((_, i) => (
                     <Star
                       key={i}
-                      className="w-5 h-5 text-yellow-400 fill-current"
+                      className="w-5 h-5 text-yellow-400 fill-current animate-pulse"
+                      style={{ animationDelay: `${i * 100}ms` }}
                     />
                   ))}
               </div>

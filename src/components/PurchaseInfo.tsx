@@ -64,9 +64,9 @@ const PurchaseInfo = () => {
 
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9"
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
               alt="Store interior"
-              className="rounded-2xl shadow-lg"
+              className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>
