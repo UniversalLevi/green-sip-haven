@@ -17,13 +17,13 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm dark:bg-background/90" : "bg-transparent"
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        isScrolled ? "bg-background/90 backdrop-blur-md shadow-lg translate-y-0" : "bg-transparent -translate-y-1"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="text-2xl font-semibold text-primary">
+          <a href="#" className="text-2xl font-semibold text-primary hover:text-primary/80 transition-colors">
             GreenSip
           </a>
 
@@ -33,11 +33,18 @@ const Header = () => {
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 {item}
               </a>
             ))}
-            <button className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary-hover transition-colors">
+            <button 
+              onClick={() => document.getElementById('subscribe')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/80 transition-all hover:scale-105"
+            >
               Get Started
             </button>
           </nav>
@@ -64,12 +71,22 @@ const Header = () => {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }}
                 >
                   {item}
                 </a>
               ))}
-              <button className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary-hover transition-colors">
+              <button 
+                onClick={() => {
+                  document.getElementById('subscribe')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+                className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/80 transition-all hover:scale-105"
+              >
                 Get Started
               </button>
             </nav>

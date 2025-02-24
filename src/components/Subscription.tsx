@@ -61,7 +61,6 @@ const plans = [
 
 const Subscription = () => {
   const handleSubscribe = (planName: string) => {
-    // Here you would typically integrate with a payment provider
     console.log(`Subscribing to ${planName}`);
     alert(`Thank you for choosing the ${planName}! We'll redirect you to payment soon.`);
   };
@@ -82,12 +81,12 @@ const Subscription = () => {
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative p-8 rounded-2xl transition-all hover-lift ${
+              className={`relative p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 fade-in-up ${
                 plan.featured
                   ? "bg-primary text-primary-foreground scale-105 shadow-xl"
                   : "bg-background border border-border"
               }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               {plan.featured && (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary px-4 py-1 rounded-full text-sm font-medium">
@@ -122,16 +121,18 @@ const Subscription = () => {
                 ))}
               </ul>
 
-              <button
-                onClick={() => handleSubscribe(plan.name)}
-                className={`w-full py-3 rounded-full transition-colors ${
-                  plan.featured
-                    ? "bg-background text-primary hover:bg-background/90"
-                    : "bg-primary text-primary-foreground hover:bg-primary-hover"
-                }`}
-              >
-                Get Started
-              </button>
+              <div className="relative overflow-hidden rounded-full">
+                <button
+                  onClick={() => handleSubscribe(plan.name)}
+                  className={`w-full py-3 text-center transition-all duration-300 hover:scale-105 ${
+                    plan.featured
+                      ? "bg-background text-primary hover:bg-background/90"
+                      : "bg-primary text-primary-foreground hover:bg-primary/90"
+                  }`}
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
           ))}
         </div>
