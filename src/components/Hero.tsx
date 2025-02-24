@@ -1,14 +1,14 @@
 
-import { ChevronRight, Sparkles, Clock, Leaf } from "lucide-react";
+import { ChevronRight, Sparkles, Clock, Leaf, Shield, Star } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center">
+    <div className="relative min-h-screen flex items-center pt-20">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent dark:from-primary/30" />
       </div>
 
-      <div className="container mx-auto px-4 pt-20">
+      <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-up">
             <span className="inline-flex items-center px-3 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full">
@@ -27,13 +27,27 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#subscribe" className="inline-flex items-center px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-hover transition-colors">
+              <a 
+                href="#subscribe" 
+                className="inline-flex items-center px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-hover transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('subscribe')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Subscribe Now
                 <ChevronRight className="ml-2 h-5 w-5" />
               </a>
-              <button className="inline-flex items-center px-8 py-3 border-2 border-primary text-primary rounded-full hover:bg-primary/5 transition-colors">
+              <a 
+                href="#benefits"
+                className="inline-flex items-center px-8 py-3 border-2 border-primary text-primary rounded-full hover:bg-primary/5 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Learn More
-              </button>
+              </a>
             </div>
 
             <div className="grid grid-cols-2 gap-8 pt-8">
@@ -55,10 +69,28 @@ const Hero = () => {
                   <p className="text-sm text-muted-foreground">Made every morning</p>
                 </div>
               </div>
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Shield className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Quality Assured</h3>
+                  <p className="text-sm text-muted-foreground">Certified processes</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Star className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Premium Service</h3>
+                  <p className="text-sm text-muted-foreground">5-star rated</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="relative animate-fade-down md:animate-float">
+          <div className="relative animate-float" style={{ animationDuration: '3s' }}>
             <img
               src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86"
               alt="Green juice bottles in natural setting"

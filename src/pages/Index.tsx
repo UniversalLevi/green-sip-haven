@@ -16,13 +16,13 @@ const Index = () => {
     <div className="min-h-screen bg-background transition-colors duration-300">
       <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="fixed bottom-6 right-6 p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors z-50"
+        className="theme-toggle"
         aria-label="Toggle theme"
       >
         {theme === "dark" ? (
-          <Sun className="h-6 w-6 text-primary" />
+          <Sun className="h-6 w-6 text-yellow-500" />
         ) : (
-          <Moon className="h-6 w-6 text-primary" />
+          <Moon className="h-6 w-6 text-slate-700" />
         )}
       </button>
       <Header />
