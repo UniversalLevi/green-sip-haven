@@ -60,8 +60,8 @@ const Hero = () => {
 
           <div className="relative animate-fade-down md:animate-float">
             <img
-              src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9"
-              alt="Green juice bottle"
+              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86"
+              alt="Green juice bottles in natural setting"
               className="w-full max-w-lg mx-auto rounded-2xl shadow-xl"
             />
           </div>

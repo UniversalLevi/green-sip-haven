@@ -3,16 +3,30 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
+    name: "Starter Plan",
+    price: "19.99",
+    description: "Perfect for beginners",
+    features: [
+      "3 bottles per week",
+      "Standard delivery",
+      "Fresh juice daily",
+      "Glass bottle included",
+      "Basic delivery schedule",
+    ],
+  },
+  {
     name: "Weekly Plan",
     price: "29.99",
-    description: "Perfect for daily consumption",
+    description: "Most popular choice",
     features: [
       "5 bottles per week",
-      "Free delivery",
+      "Free priority delivery",
       "Fresh juice daily",
       "Premium glass bottle",
       "Flexible delivery schedule",
+      "Basic member benefits",
     ],
+    featured: true,
   },
   {
     name: "Monthly Plan",
@@ -25,33 +39,55 @@ const plans = [
       "Premium glass bottle",
       "Flexible delivery schedule",
       "10% discount on additional orders",
+      "Premium member benefits",
     ],
-    featured: true,
+  },
+  {
+    name: "Family Plan",
+    price: "159.99",
+    description: "Perfect for families",
+    features: [
+      "40 bottles per month",
+      "Priority delivery",
+      "Fresh juice daily",
+      "Premium glass bottles",
+      "Custom delivery schedule",
+      "15% discount on additional orders",
+      "Premium member benefits",
+      "Family size portions",
+    ],
   },
 ];
 
 const Subscription = () => {
+  const handleSubscribe = (planName: string) => {
+    // Here you would typically integrate with a payment provider
+    console.log(`Subscribing to ${planName}`);
+    alert(`Thank you for choosing the ${planName}! We'll redirect you to payment soon.`);
+  };
+
   return (
     <section className="py-24" id="subscribe">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-16 fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Choose Your Plan
           </h2>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             Select a subscription plan that works best for your healthy lifestyle
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative p-8 rounded-2xl transition-all ${
+              className={`relative p-8 rounded-2xl transition-all hover-lift ${
                 plan.featured
-                  ? "bg-primary text-white scale-105 shadow-xl"
-                  : "bg-white border border-gray-200"
+                  ? "bg-primary text-primary-foreground scale-105 shadow-xl"
+                  : "bg-background border border-border"
               }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {plan.featured && (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary px-4 py-1 rounded-full text-sm font-medium">
@@ -61,14 +97,14 @@ const Subscription = () => {
 
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className={plan.featured ? "text-white/80" : "text-gray-600"}>
+                <p className={plan.featured ? "text-primary-foreground/80" : "text-muted-foreground"}>
                   {plan.description}
                 </p>
               </div>
 
               <div className="mb-8">
                 <span className="text-4xl font-bold">${plan.price}</span>
-                <span className={plan.featured ? "text-white/80" : "text-gray-600"}>
+                <span className={plan.featured ? "text-primary-foreground/80" : "text-muted-foreground"}>
                   /month
                 </span>
               </div>
@@ -78,7 +114,7 @@ const Subscription = () => {
                   <li key={feature} className="flex items-center gap-3">
                     <Check
                       className={`w-5 h-5 ${
-                        plan.featured ? "text-white" : "text-primary"
+                        plan.featured ? "text-primary-foreground" : "text-primary"
                       }`}
                     />
                     <span>{feature}</span>
@@ -87,10 +123,11 @@ const Subscription = () => {
               </ul>
 
               <button
+                onClick={() => handleSubscribe(plan.name)}
                 className={`w-full py-3 rounded-full transition-colors ${
                   plan.featured
-                    ? "bg-white text-primary hover:bg-gray-100"
-                    : "bg-primary text-white hover:bg-primary-hover"
+                    ? "bg-background text-primary hover:bg-background/90"
+                    : "bg-primary text-primary-foreground hover:bg-primary-hover"
                 }`}
               >
                 Get Started
